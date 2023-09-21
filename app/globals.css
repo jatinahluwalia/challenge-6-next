@@ -4,24 +4,7 @@
 @tailwind utilities;
 
 @layer utilities {
-    .dark-bg-desktop {
-        background-image: url('/images/bg-desktop-dark.jpg');
-        @apply dark:bg-very-dark-blue ;
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-    }
-    .light-bg-desktop {
-        background-image: url('/images/bg-desktop-light.jpg');
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-    }
-    .dark-bg-mobile {
-        background-image: url('/images/bg-mobile-dark.jpg');
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-    }
-    .light-bg-mobile {
-        background-image: url('/images/bg-mobile-light.jpg');
+    .bg {
         background-size: 100% auto;
         background-repeat: no-repeat;
     }

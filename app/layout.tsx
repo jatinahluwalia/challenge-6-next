@@ -15,12 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-josefin flex flex-col justify-center h-screen dark:dark-bg-desktop light-bg-desktop">
+      <body className="font-josefin flex flex-col justify-center h-screen dark:dark-bg-desktop light-bg-desktop bg bg-mobile-light dark:bg-mobile-dark lg:bg-body-light lg:dark:bg-body-dark bg-very-light-grayish-blue dark:bg-very-dark-blue">
         <ProvideThemes>
-          <header className="h-[min(100%,700px)]">
+          <main className="h-[min(100%,700px)]  w-[min(800px,100%)] mx-auto flex flex-col">
             <Header />
-          </header>
-          <main className="flex flex-col">{children}</main>
+            <section className="flex flex-col">{children}</section>
+          </main>
         </ProvideThemes>
       </body>
     </html>

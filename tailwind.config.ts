@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: ["class", "[data-theme='dark']"],
   theme: {
     extend: {
       colors: {
@@ -38,7 +39,12 @@ const config: Config = {
         medium: "400",
         bold: "700",
       },
-      backgroundImage: {},
+      backgroundImage: {
+        "body-dark": "url('/images/bg-desktop-dark.jpg')",
+        "body-light": "url('/images/bg-desktop-light.jpg')",
+        "mobile-dark": "url('/images/bg-mobile-dark.jpg')",
+        "mobile-light": "url('/images/bg-mobile-light.jpg')",
+      },
     },
   },
   plugins: [],
