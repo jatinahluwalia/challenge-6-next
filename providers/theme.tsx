@@ -1,5 +1,4 @@
 "use client";
-"small change";
 
 import { ThemeProvider } from "next-themes";
 
