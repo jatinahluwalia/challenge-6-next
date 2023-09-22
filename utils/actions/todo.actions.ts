@@ -4,37 +4,10 @@ import { revalidatePath } from "next/cache";
 import Todo from "../models/todos.model";
 import { connectToDB } from "../mongoose";
 
-export const fetchTodos = async ({
-  completed = false,
-  active = false,
-  query = "",
-}) => {
+export const fetchTodos = async ({ q }: { q?: string }) => {
   try {
     await connectToDB();
-    if (completed) return await Todo.find({ completed: true });
-    if (active) return await Todo.find({ completed: false });
-    if (query) {
-      const regex = new RegExp(query, "i");
-      if (completed)
-        return await Todo.find({
-          completed: true,
-          todo: {
-            $regex: regex,
-          },
-        });
-      if (active)
-        return await Todo.find({
-          completed: false,
-          todo: {
-            $regex: regex,
-          },
-        });
-      return await Todo.find({
-        todo: {
-          $regex: regex,
-        },
-      });
-    }
+    if (q) return await Todo.find({ completed: q === "completed" });
     return await Todo.find();
   } catch (error: any) {
     throw new Error(`Error fetching todos: ${error.message}`);
@@ -65,5 +38,14 @@ export const removeCompleted = async (todoId: string) => {
     revalidatePath("/");
   } catch (error: any) {
     throw new Error(`Error activing todo: ${error.message}`);
+  }
+};
+
+export const clearCompletedAction = async () => {
+  try {
+    await Todo.deleteMany({ completed: true });
+    revalidatePath("/");
+  } catch (error: any) {
+    throw new Error(`Error clearing completed: ${error.message}`);
   }
 };

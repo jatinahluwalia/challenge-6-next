@@ -20,9 +20,9 @@ const Card = ({
   };
   return (
     <article
-      className={`dark:bg-very-dark-desaturated-blue bg-white border-light-grayish-blue dark:border-very-dark-grayish-blue-1 ${
+      className={`dark:bg-very-dark-desaturated-blue bg-white border-light-grayish-blue dark:border-very-dark-grayish-blue-1 p-6 flex gap-5 h-20 items-center ${
         todoId ? "rounded-none border-b-[1px]" : "rounded-md"
-      } p-6 flex gap-5 h-20 items-center`}
+      }`}
     >
       {completed ? (
         <div

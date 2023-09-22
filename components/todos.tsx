@@ -1,12 +1,14 @@
 import Card from "./card";
+import Filters from "./filters";
 
 interface Props {
   todos: any[];
+  query: string | undefined;
 }
 
-const Todos = ({ todos }: Props) => {
+const Todos = ({ todos, query }: Props) => {
   return (
-    <section className="rounded-md overflow-hidden flex flex-col">
+    <section className="rounded-md overflow-hidden flex flex-col min-h-[34rem] dark:bg-very-dark-desaturated-blue bg-white shadow-lg">
       {todos.map((todo) => (
         <Card todoId={todo._id} completed={todo.completed}>
           <p
@@ -20,6 +22,7 @@ const Todos = ({ todos }: Props) => {
           </p>
         </Card>
       ))}
+      <Filters todosLength={todos.length} query={query} />
     </section>
   );
 };
