@@ -7,6 +7,7 @@ const Home = async ({ searchParams }: { searchParams: { q: string } }) => {
   return (
     <div className="flex flex-col gap-5 mt-10">
       <Form />
+      <Todos todos={todos} />
     </div>
   );
 };

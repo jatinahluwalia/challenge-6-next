@@ -15,9 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-josefin flex flex-col justify-center h-screen dark:dark-bg-desktop light-bg-desktop bg bg-mobile-light dark:bg-mobile-dark lg:bg-body-light lg:dark:bg-body-dark bg-very-light-grayish-blue dark:bg-very-dark-blue">
+      <body className="font-josefin font-medium flex flex-col justify-center h-screen dark:dark-bg-desktop light-bg-desktop bg bg-mobile-light dark:bg-mobile-dark lg:bg-body-light lg:dark:bg-body-dark bg-very-light-grayish-blue dark:bg-very-dark-blue">
         <ProvideThemes>
-          <main className="h-[min(100%,700px)]  w-[min(800px,100%)] mx-auto flex flex-col">
+          <main className="px-8 h-[min(100%,700px)]  w-[min(800px,100%)] mx-auto flex flex-col">
             <Header />
             <section className="flex flex-col">{children}</section>
           </main>

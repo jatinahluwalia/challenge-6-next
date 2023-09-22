@@ -48,3 +48,22 @@ export const addTodo = async (todo: string) => {
     revalidatePath("/");
   } catch (error: any) {}
 };
+
+export const addCompleted = async (todoId: string) => {
+  try {
+    await connectToDB();
+    await Todo.findByIdAndUpdate(todoId, { completed: true });
+    revalidatePath("/");
+  } catch (error: any) {
+    throw new Error(`Error completing todo: ${error.message}`);
+  }
+};
+export const removeCompleted = async (todoId: string) => {
+  try {
+    await connectToDB();
+    await Todo.findByIdAndUpdate(todoId, { completed: false });
+    revalidatePath("/");
+  } catch (error: any) {
+    throw new Error(`Error activing todo: ${error.message}`);
+  }
+};
