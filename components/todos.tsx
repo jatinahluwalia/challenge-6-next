@@ -10,7 +10,7 @@ const Todos = ({ todos, query }: Props) => {
   return (
     <section className="rounded-md overflow-hidden flex flex-col min-h-[34rem] dark:bg-very-dark-desaturated-blue bg-white shadow-lg">
       {todos.map((todo) => (
-        <Card todoId={todo._id} completed={todo.completed}>
+        <Card key={todo._id} todoId={todo._id} completed={todo.completed}>
           <p
             className={`text-regular ${
               todo.completed
